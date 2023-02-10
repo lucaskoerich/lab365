@@ -1,0 +1,15 @@
+D:\lab365\Modulo01\Semana01\Exercicio02\bin\Debug\net7.0\Exercicio02.exe
+D:\lab365\Modulo01\Semana01\Exercicio02\bin\Debug\net7.0\Exercicio02.deps.json
+D:\lab365\Modulo01\Semana01\Exercicio02\bin\Debug\net7.0\Exercicio02.runtimeconfig.json
+D:\lab365\Modulo01\Semana01\Exercicio02\bin\Debug\net7.0\Exercicio02.dll
+D:\lab365\Modulo01\Semana01\Exercicio02\bin\Debug\net7.0\Exercicio02.pdb
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\Exercicio02.csproj.AssemblyReference.cache
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\Exercicio02.GeneratedMSBuildEditorConfig.editorconfig
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\Exercicio02.AssemblyInfoInputs.cache
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\Exercicio02.AssemblyInfo.cs
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\Exercicio02.csproj.CoreCompileInputs.cache
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\Exercicio02.dll
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\refint\Exercicio02.dll
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\Exercicio02.pdb
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\Exercicio02.genruntimeconfig.cache
+D:\lab365\Modulo01\Semana01\Exercicio02\obj\Debug\net7.0\ref\Exercicio02.dll
