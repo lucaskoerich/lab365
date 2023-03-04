@@ -8,10 +8,9 @@ public class PessoaFisica : Cliente
     public int Idade { get {return (int)(Math.Floor((DateTime.Now - DataNascimento).TotalDays / 365.25)); } private set {} }
     
     
-    public string ResumoCliente()
+    public override string ResumoCliente()
     {
-        return $"{NumeroConta} |  {Nome}  | {CPF}";
-        
+        return $"{NumeroConta}  |  {Nome}  | {CPF}  |  {DataNascimento}  | {Endereco}  |  {Telefone}";
     }
     public bool EhMaior()
     {

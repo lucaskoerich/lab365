@@ -12,6 +12,7 @@ namespace M1S3_SistemaBanco
             private set { }
         }
 
+        public abstract string ResumoCliente();
 
         public List<Transacao> Extrato { get; set; }
 
