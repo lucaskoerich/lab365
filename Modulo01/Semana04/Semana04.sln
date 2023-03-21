@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicioHeranca", "ExercicioHeranca\ExercicioHeranca.csproj", "{09E130EA-7A3A-42EA-9EA7-52B860A020C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula01", "..\Semana05\Aula01\Aula01.csproj", "{7A395765-EBA2-4D38-9BBF-98EB050AD607}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExercicioBebidas", "ExercicioBebidas\ExercicioBebidas.csproj", "{88CAD888-F17B-4C71-A181-5129DB199F8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09E130EA-7A3A-42EA-9EA7-52B860A020C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E130EA-7A3A-42EA-9EA7-52B860A020C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E130EA-7A3A-42EA-9EA7-52B860A020C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E130EA-7A3A-42EA-9EA7-52B860A020C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A395765-EBA2-4D38-9BBF-98EB050AD607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A395765-EBA2-4D38-9BBF-98EB050AD607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A395765-EBA2-4D38-9BBF-98EB050AD607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A395765-EBA2-4D38-9BBF-98EB050AD607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88CAD888-F17B-4C71-A181-5129DB199F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88CAD888-F17B-4C71-A181-5129DB199F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88CAD888-F17B-4C71-A181-5129DB199F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88CAD888-F17B-4C71-A181-5129DB199F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
