@@ -6,10 +6,18 @@ namespace BasicAPI.Controllers
     [Route("clientes")]
     public class ClientesController : Controller
     {
+        static List<Cliente> _clientes = new();
+
         [HttpGet]
         public ActionResult Metodo([FromQuery] string nome)
         {
-            return Ok($"Olá, {nome}!");
+            if (string.IsNullOrEmpty(nome))
+            {
+                return Ok(_clientes);
+            }
+
+            var filtroClientes = _clientes.Where(x => x.Nome == nome);
+            return Ok(filtroClientes);
         }
 
         [HttpGet]
@@ -24,6 +32,23 @@ namespace BasicAPI.Controllers
         public ActionResult ObterCliente([FromQuery] string nome, [FromRoute] int id)
         {
             return Ok(new Cliente(id, nome));
+        }
+
+        [HttpPost]
+        public ActionResult Post([FromBody] Cliente cliente)
+        {
+            _clientes.Add(cliente);
+            return Created(Request.Path, cliente);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public ActionResult Delete([FromRoute] int id)
+        {
+            var cliente = _clientes.Find(x => x.Id == id);
+
+            _clientes.Remove(cliente);
+            return Ok();
         }
     }
 }
