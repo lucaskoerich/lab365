@@ -1,4 +1,5 @@
-﻿using FSBankAPI.Models;
+﻿using FSBankAPI.Interfaces;
+using FSBankAPI.Models;
 using FSBankAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,7 +8,7 @@ namespace FSBankAPI.Controllers;
 [Route("clientes")]
 public class ClientesController : Controller
 {
-    private ClienteService _clienteService = new();
+    private IClientesService _clienteService = new ClienteService();
 
 
     [HttpGet]
@@ -18,9 +19,9 @@ public class ClientesController : Controller
     
     [HttpGet]
     [Route("{id}")]
-    public ActionResult GetPorID([FromRoute] int id)
+    public ActionResult GetPorId([FromRoute] int id)
     {
-       return Ok(_clienteService.ExibirClientesPorId(id));
+       return Ok(_clienteService.BuscarCliente(id));
     }
     
     
@@ -40,6 +41,21 @@ public class ClientesController : Controller
         _clienteService.CriarConta(pessoaJuridica);
         return Created(Request.Path, pessoaJuridica );
     }
+
+    [HttpPut]
+    [Route("pessoafisica/{id}")]
+    public ActionResult AtualizarPessoaFisica([FromBody] PessoaFisica pessoaFisica, int id)
+    {
+        _clienteService.AtualizarPessoaFisica(pessoaFisica, id);
+        return Ok();
+    }
     
+    [HttpPut]
+    [Route("pessoajuridica/{id}")]
+    public ActionResult AtualizarPessoaJuridica([FromBody] PessoaJuridica pessoaJuridica, int id)
+    {
+        _clienteService.AtualizarPessoaJuridica(pessoaJuridica, id);
+        return Ok();
+    }
     
 }
