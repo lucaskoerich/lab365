@@ -26,7 +26,7 @@ public class ClientesController : Controller
 
 
     [HttpPost]
-    [Route("pessoaFisica")]
+    [Route("pessoafisica")]
     public ActionResult PostPessoaFisica([FromBody] PessoaFisica pessoaFisica)
     {
         _clienteService.CriarConta(pessoaFisica);
@@ -35,7 +35,7 @@ public class ClientesController : Controller
 
 
     [HttpPost]
-    [Route("pessoaJuridica")]
+    [Route("pessoajuridica")]
     public ActionResult PostPessoaJuridica([FromBody] PessoaJuridica pessoaJuridica)
     {
         _clienteService.CriarConta(pessoaJuridica);
