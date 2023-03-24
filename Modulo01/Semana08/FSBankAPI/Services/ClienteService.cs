@@ -34,6 +34,11 @@ public class ClienteService : IClientesService
         return _clientes.Find(x => x.NumeroConta == id);
     }
 
+    public void DeletarCliente(int id)
+    {
+        _clientes.Remove(BuscarCliente(id));
+    }
+
     public Cliente AtualizarPessoaFisica(PessoaFisica pessoaFisica, int id)
     {
         PessoaFisica newPessoaFisica = _clientes.Find(x => x.NumeroConta == id) as PessoaFisica;
@@ -50,6 +55,7 @@ public class ClienteService : IClientesService
 
         return newPessoaFisica;
     }
+
     public Cliente AtualizarPessoaJuridica(PessoaJuridica pessoaJuridica, int id)
     {
         PessoaJuridica newPessoaJuridica = _clientes.Find(x => x.NumeroConta == id) as PessoaJuridica;
