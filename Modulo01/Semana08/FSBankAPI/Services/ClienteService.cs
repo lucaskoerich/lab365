@@ -41,7 +41,7 @@ public class ClienteService : IClientesService
 
     public Cliente AtualizarPessoaFisica(PessoaFisica pessoaFisica, int id)
     {
-        PessoaFisica newPessoaFisica = _clientes.Find(x => x.NumeroConta == id) as PessoaFisica;
+        PessoaFisica newPessoaFisica = BuscarCliente(id) as PessoaFisica;
 
         if (pessoaFisica != null)
         {
@@ -58,7 +58,7 @@ public class ClienteService : IClientesService
 
     public Cliente AtualizarPessoaJuridica(PessoaJuridica pessoaJuridica, int id)
     {
-        PessoaJuridica newPessoaJuridica = _clientes.Find(x => x.NumeroConta == id) as PessoaJuridica;
+        PessoaJuridica newPessoaJuridica = BuscarCliente(id) as PessoaJuridica;
 
         if (newPessoaJuridica != null)
         {
@@ -72,5 +72,19 @@ public class ClienteService : IClientesService
         }
 
         return newPessoaJuridica;
+    }
+
+    public void AdicionarTransacao(Transacao transacao, int idCliente)
+    {
+        Cliente cliente = BuscarCliente(idCliente);
+
+        cliente.Extrato.Add(transacao);
+    }
+
+    public List<Transacao> ListarTransacao(int idCliente)
+    {
+        Cliente cliente = BuscarCliente(idCliente);
+
+        return cliente.Extrato;
     }
 }

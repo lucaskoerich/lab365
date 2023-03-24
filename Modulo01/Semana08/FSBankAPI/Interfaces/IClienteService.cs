@@ -10,4 +10,6 @@ public interface IClientesService
     Cliente AtualizarPessoaFisica(PessoaFisica pessoaFisica, int id);
     Cliente AtualizarPessoaJuridica(PessoaJuridica pessoaJuridica, int id);
     void DeletarCliente(int id);
+    void AdicionarTransacao(Transacao transacao, int idCliente);
+    List<Transacao> ListarTransacao(int idCliente);
 }
