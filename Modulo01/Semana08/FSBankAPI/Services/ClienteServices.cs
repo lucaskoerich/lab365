@@ -1,11 +1,9 @@
-﻿using FSBankAPI.Controllers;
-using FSBankAPI.Interfaces;
+﻿using FSBankAPI.Interfaces;
 using FSBankAPI.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace FSBankAPI.Services;
 
-public class ClienteService : IClientesService
+public class ClienteServices : IClientesServices
 {
     static List<Cliente> _clientes = new();
 

@@ -1,6 +1,5 @@
 ﻿using FSBankAPI.Interfaces;
 using FSBankAPI.Models;
-using FSBankAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FSBankAPI.Controllers;
@@ -8,20 +7,24 @@ namespace FSBankAPI.Controllers;
 [Route("clientes")]
 public class ClientesController : Controller
 {
-    private IClientesService _clienteService = new ClienteService();
+    private IClientesServices _clienteServices;
 
+    public ClientesController(IClientesServices clienteServices)
+    {
+        _clienteServices = clienteServices;
+    }
 
     [HttpGet]
     public ActionResult Get()
     {
-        return Ok(_clienteService.ExibirClientes());
+        return Ok(_clienteServices.ExibirClientes());
     }
 
     [HttpGet]
     [Route("{id}")]
     public ActionResult GetPorId([FromRoute] int id)
     {
-        return Ok(_clienteService.BuscarCliente(id));
+        return Ok(_clienteServices.BuscarCliente(id));
     }
 
 
@@ -29,7 +32,7 @@ public class ClientesController : Controller
     [Route("pessoafisica")]
     public ActionResult PostPessoaFisica([FromBody] PessoaFisica pessoaFisica)
     {
-        _clienteService.CriarConta(pessoaFisica);
+        _clienteServices.CriarConta(pessoaFisica);
         return Created(Request.Path, pessoaFisica);
     }
 
@@ -38,7 +41,7 @@ public class ClientesController : Controller
     [Route("pessoajuridica")]
     public ActionResult PostPessoaJuridica([FromBody] PessoaJuridica pessoaJuridica)
     {
-        _clienteService.CriarConta(pessoaJuridica);
+        _clienteServices.CriarConta(pessoaJuridica);
         return Created(Request.Path, pessoaJuridica);
     }
 
@@ -46,7 +49,7 @@ public class ClientesController : Controller
     [Route("pessoafisica/{id}")]
     public ActionResult AtualizarPessoaFisica([FromBody] PessoaFisica pessoaFisica, int id)
     {
-        _clienteService.AtualizarPessoaFisica(pessoaFisica, id);
+        _clienteServices.AtualizarPessoaFisica(pessoaFisica, id);
         return Ok();
     }
 
@@ -54,7 +57,7 @@ public class ClientesController : Controller
     [Route("pessoajuridica/{id}")]
     public ActionResult AtualizarPessoaJuridica([FromBody] PessoaJuridica pessoaJuridica, int id)
     {
-        _clienteService.AtualizarPessoaJuridica(pessoaJuridica, id);
+        _clienteServices.AtualizarPessoaJuridica(pessoaJuridica, id);
         return Ok();
     }
 
@@ -62,7 +65,7 @@ public class ClientesController : Controller
     [Route("{id}")]
     public ActionResult DeletarCliente([FromRoute] int id)
     {
-        Cliente clienteDeletar = _clienteService.BuscarCliente(id);
+        Cliente clienteDeletar = _clienteServices.BuscarCliente(id);
 
         if (clienteDeletar.Saldo != 0)
         {
@@ -70,7 +73,7 @@ public class ClientesController : Controller
         }
 
 
-        _clienteService.DeletarCliente(id);
+        _clienteServices.DeletarCliente(id);
         return Ok();
     }
 }

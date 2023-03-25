@@ -6,14 +6,14 @@ public abstract class Cliente
     public string Telefone { get; set; }
     public string Endereco { get; set; }
     public int NumeroConta { get; set; }
-    
-    
+
+
     public double Saldo
     {
         get { return GetSaldo(); }
         private set { }
     }
-    
+
     public abstract string ResumoCliente();
 
     public List<Transacao> Extrato { get; set; }
@@ -31,6 +31,7 @@ public abstract class Cliente
         NumeroConta = numeroConta;
         Extrato = extrato;
     }
+
     private double GetSaldo()
     {
         double saldo = 0;

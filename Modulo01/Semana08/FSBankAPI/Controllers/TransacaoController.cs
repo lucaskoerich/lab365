@@ -1,6 +1,5 @@
 ﻿using FSBankAPI.Interfaces;
 using FSBankAPI.Models;
-using FSBankAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FSBankAPI.Controllers;
@@ -8,8 +7,12 @@ namespace FSBankAPI.Controllers;
 [Route("transacao")]
 public class TransacaoController : Controller
 {
-    private IClientesService _clienteService = new ClienteService();
-    private Transacao _transacao = new();
+    private IClientesServices _clienteService;
+
+    public TransacaoController(IClientesServices clienteServices)
+    {
+        _clienteService = clienteServices;
+    }
 
     [HttpPost]
     [Route("{idCliente}")]

@@ -2,7 +2,7 @@
 
 namespace FSBankAPI.Interfaces;
 
-public interface IClientesService
+public interface IClientesServices
 {
     void CriarConta(Cliente cliente);
     List<Cliente> ExibirClientes();
