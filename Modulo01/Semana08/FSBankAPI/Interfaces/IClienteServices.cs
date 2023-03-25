@@ -5,7 +5,8 @@ namespace FSBankAPI.Interfaces;
 public interface IClientesServices
 {
     void CriarConta(Cliente cliente);
-    List<Cliente> ExibirClientes();
+    List<PessoaFisica> ExibirClientesPF();
+    List<PessoaJuridica> ExibirClientesPJ();
     Cliente BuscarCliente(int id);
     Cliente AtualizarPessoaFisica(PessoaFisica pessoaFisica, int id);
     Cliente AtualizarPessoaJuridica(PessoaJuridica pessoaJuridica, int id);

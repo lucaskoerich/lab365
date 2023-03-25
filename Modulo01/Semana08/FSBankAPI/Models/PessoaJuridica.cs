@@ -11,6 +11,11 @@ public class PessoaJuridica : Cliente
 
     public PessoaJuridica(string email, string telefone, string endereco, int numeroConta, List<Transacao> extrato, string cnpj, string razaoSocial, string nomeFantasia, DateTime dataAbertura) : base(email, telefone, endereco, numeroConta, extrato)
     {
+        Email = email;
+        Telefone = telefone;
+        Endereco = endereco;
+        NumeroConta = numeroConta;
+        Extrato = extrato;
         CNPJ = cnpj;
         RazaoSocial = razaoSocial;
         NomeFantasia = nomeFantasia;

@@ -15,9 +15,17 @@ public class ClientesController : Controller
     }
 
     [HttpGet]
-    public ActionResult Get()
+    [Route("pessoafisica")]
+    public ActionResult ExibirPessoasFisicas()
     {
-        return Ok(_clienteServices.ExibirClientes());
+        return Ok(_clienteServices.ExibirClientesPF());
+    }
+
+    [HttpGet]
+    [Route("pessoajuridica")]
+    public ActionResult ExibirPessoasJuridicas()
+    {
+        return Ok(_clienteServices.ExibirClientesPJ());
     }
 
     [HttpGet]

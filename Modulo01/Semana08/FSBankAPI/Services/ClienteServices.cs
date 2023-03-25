@@ -22,9 +22,15 @@ public class ClienteServices : IClientesServices
     //     return cliente;
     // }
     //
-    public List<Cliente> ExibirClientes()
+    public List<PessoaFisica> ExibirClientesPF()
     {
-        return _clientes;
+        List<PessoaFisica> clientesPF = _clientes.OfType<PessoaFisica>().ToList();
+        return clientesPF;
+    }
+    public List<PessoaJuridica> ExibirClientesPJ()
+    {
+        List<PessoaJuridica> clientesPJ = _clientes.OfType<PessoaJuridica>().ToList();
+        return clientesPJ;
     }
 
     public Cliente BuscarCliente(int id)
