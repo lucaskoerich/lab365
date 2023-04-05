@@ -37,7 +37,21 @@ public class MesController : Controller
     [HttpGet("{id}")]
     public ActionResult GetById([FromRoute] int id)
     {
-        return Ok();
+        var mesModel = _mesContext.Mes.Find(id);
+
+        MesGetAllDTO mesGetAllDto = new MesGetAllDTO();
+
+        if (mesModel == null)
+        {
+            return BadRequest("ID não encontrado!");
+        }
+
+        mesGetAllDto.Id = mesModel.Id;
+        mesGetAllDto.Mes = mesModel.Nome;
+        mesGetAllDto.Ano = mesModel.Ano;
+
+
+        return Ok(mesGetAllDto);
     }
 
     [HttpPost]

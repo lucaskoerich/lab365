@@ -8,7 +8,7 @@ namespace Aula02.Models;
 public class MesModel
 {
     [Key]
-    [Column("ID")]
+    [Column("Id")]
     public int Id { get; set; }
     
     [MaxLength(100)]

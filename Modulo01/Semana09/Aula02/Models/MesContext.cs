@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Aula02.DTO;
 
 namespace Aula02.Models;
 
@@ -14,6 +15,8 @@ public class MesContext : DbContext
     }
     
     public DbSet<MesModel> Mes { get; set; }
+    public DbSet<SemanaModel> Semana { get; set; }
+    public DbSet<Aula02.DTO.MesGetAllDTO> MesGetAllDTO { get; set; }
 
     // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     // {
