@@ -7,7 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-string connectionString = "Server=(localdb)\\.;database=ExercicioApi;";
+string connectionString = "Server=LUCAS\\SQLEXPRESS;Database=EXS9;Trusted_Connection=True;TrustServerCertificate=True;";
 builder.Services.AddDbContext<SemanaContext>(o => o.UseSqlServer(connectionString));
 
 var app = builder.Build();

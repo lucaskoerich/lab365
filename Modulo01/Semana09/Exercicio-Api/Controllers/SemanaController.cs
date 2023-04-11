@@ -15,36 +15,71 @@ public class SemanaController : Controller
     }
 
     [HttpGet]
-    public ActionResult Get()
+    public ActionResult<List<SemanaModel>> GetTodos()
     {
-        return Ok();
+        var listaSemanaModel = _semanaContext.Semana;
+        List<SemanaModel> listaGetTodos = new List<SemanaModel>();
+
+        foreach (var item in listaSemanaModel)
+        {
+            var semanaGetTodos = new SemanaModel();
+            semanaGetTodos.Id = item.Id;
+            semanaGetTodos.DataSemana = item.DataSemana;
+            semanaGetTodos.Conteudo = item.Conteudo;
+            semanaGetTodos.AplicadoConteudo = item.AplicadoConteudo;
+
+            listaGetTodos.Add(semanaGetTodos);
+        }
+
+        return Ok(listaGetTodos);
     }
-    
+
     [HttpGet]
     [Route("{id}")]
-    public ActionResult Get([FromRoute] int id)
+    public ActionResult GetPorId([FromRoute] int id)
     {
-        return Ok();
+        SemanaModel _semanaModel = _semanaContext.Semana.Find(id);
+
+        if (_semanaModel != null)
+        {
+            return Ok(_semanaModel);
+        }
+
+        return BadRequest("ID não encontrado!");
     }
 
     [HttpPost]
     public ActionResult Post([FromBody] SemanaModel semanaModel)
     {
-        if (semanaModel.Id > 0)
+        if (semanaModel.Id >= 0)
         {
-            return Ok();
+            SemanaModel _semanaModel = new SemanaModel();
+            _semanaModel.DataSemana = semanaModel.DataSemana;
+            _semanaModel.Conteudo = semanaModel.Conteudo;
+            _semanaModel.AplicadoConteudo = semanaModel.AplicadoConteudo;
+
+            _semanaContext.Add(_semanaModel);
+            _semanaContext.SaveChanges();
+            return Ok(_semanaModel);
         }
 
         return BadRequest("ID precisa ser maior que 0");
     }
 
     [HttpPut]
-    [Route("{id}")]
-    public ActionResult Put([FromBody] SemanaModel semanaModel, [FromRoute] int id)
+    public ActionResult Put([FromBody] SemanaModel semanaModel)
     {
-        if (semanaModel.Id == id)
+        SemanaModel _semanaModel = _semanaContext.Semana.Find(semanaModel.Id);
+
+        if (_semanaModel.Id != null)
         {
-            return Ok();
+            _semanaModel.DataSemana = semanaModel.DataSemana;
+            _semanaModel.Conteudo = semanaModel.Conteudo;
+            _semanaModel.AplicadoConteudo = semanaModel.AplicadoConteudo;
+
+            _semanaContext.Attach(_semanaModel);
+            _semanaContext.SaveChanges();
+            return Ok(semanaModel);
         }
 
         return BadRequest("ID não encontrado!");
@@ -54,15 +89,15 @@ public class SemanaController : Controller
     [Route("{id}")]
     public ActionResult Delete([FromRoute] int id)
     {
-        // if ()
-        // {
-        //     return Ok();
-        // }
+        SemanaModel _semanaModel = _semanaContext.Semana.Find(id);
+
+        if (_semanaModel != null)
+        {
+            _semanaContext.Remove(_semanaModel);
+            _semanaContext.SaveChanges();
+            return Ok();
+        }
 
         return BadRequest("ID não encontrado!");
     }
-    
-    
-    
-    
 }
