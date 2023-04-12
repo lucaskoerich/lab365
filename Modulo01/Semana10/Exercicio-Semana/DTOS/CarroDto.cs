@@ -1,4 +1,6 @@
-﻿namespace Exercicio_Semana.DTOS;
+﻿using System;
+
+namespace Exercicio_Semana.DTOS;
 
 public class CarroDto
 {
